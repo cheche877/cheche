@@ -139,8 +139,8 @@ function computeDiscount() {
     const discountValue = price * (discountPct / 100);
     const finalPrice = price - discountValue;
 
-    savedAmount.textContent = ₱${discountValue.toFixed(5)};
-    priceAfter.textContent = ₱${finalPrice.toFixed(5)};
+    savedAmount.textContent = `₱${discountValue.toFixed(5)};
+    priceAfter.textContent = `₱${finalPrice.toFixed(5)};
 }
 
 function resetForm() {
