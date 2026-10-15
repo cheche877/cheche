@@ -6,12 +6,12 @@
     <title>Discount Calculator</title>
     <style>
 :root {
-    --primary: #2563eb;
-    --accent: #f97316;
+    --primary: #FF0000;
+    --accent: #ff0000;
     --accent-hover: #ea580c;
     --bg-main: #f8fafc;
     --surface: #ffffff;
-    --text-main: #1f2937;
+    --text-main: #000000;
     --text-muted: #6b7280;
     --border: #e5e7eb;
     --focus-ring: rgba(37, 99, 235, 0.2);
@@ -83,7 +83,7 @@ input[type="button"] {
 }
 input[type="button"]:hover {
     background-color: var(--accent-hover);
-    box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 4px 8px rgba(200, 115, 22, 0.3);
 }
 input[type="button"]:active {
     transform: translateY(1px);
@@ -119,7 +119,7 @@ output {
         <input type="button" id="btnReset" value="Reset">
 
         <label style="margin-top: 20px; font-size: 0.8rem; text-transform: none;">
-            Programmed by: Chelsea Mae M. Tabarnilla — 12-Cooper
+            Chelsea Mae M. Tabarnilla, 12 — Cooper
         </label>
     </div>
 </form>
@@ -139,8 +139,8 @@ function computeDiscount() {
     const discountValue = price * (discountPct / 100);
     const finalPrice = price - discountValue;
 
-    savedAmount.textContent = `₱${discountValue.toFixed(5)};
-    priceAfter.textContent = `₱${finalPrice.toFixed(5)};
+    savedAmount.textContent = ₱${discountValue.toFixed(5)};
+    priceAfter.textContent = ₱${finalPrice.toFixed(5)};
 }
 
 function resetForm() {
