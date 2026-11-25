@@ -1,19 +1,8 @@
-  nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #6826a5;
-    padding: 18px 40px;
-    gap: 40px;
-}
-
-nav h2 {
+nav ul li a {
     color: white;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    padding: 0;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    padding: 10px;
 }
