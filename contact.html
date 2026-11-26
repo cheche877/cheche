@@ -8,9 +8,11 @@
         :root {
             --purple-dark: #4a148c;
             --purple-main: #6a1b9a;
-            --purple-light: #f3e5f5;
+            --purple-accent: #7b1fa2;
+            --bg-lavender: #f6f2fb;
             --white: #ffffff;
-            --text-dark: #2c0b4e;
+            --text-dark: #240842;
+            --shadow-card: 0 4px 12px rgba(74, 20, 140, 0.08);
         }
 
         * {
@@ -20,8 +22,8 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--white);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-lavender);
             color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -29,59 +31,101 @@
             flex-direction: column;
         }
 
+        /* Top Navigation Bar */
         .navbar {
-            background-color: var(--purple-dark);
-            padding: 0.75rem 1.5rem;
+            background-color: var(--purple-main);
+            padding: 0 2.5rem;
         }
 
         .nav-list {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 1rem;
+            align-items: stretch;
+            gap: 0.5rem;
         }
 
         .nav-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             color: var(--white);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.9rem 1.4rem;
+            font-weight: 500;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
 
         .nav-link:hover,
         .nav-link:focus-visible {
-            background-color: var(--purple-main);
-            color: var(--white);
+            background-color: var(--purple-dark);
         }
 
         .nav-link.active {
             background-color: var(--white);
             color: var(--purple-dark);
-            font-weight: 600;
+            font-weight: 700;
         }
 
+        /* Page Title Banner */
+        .page-banner {
+            background-color: var(--purple-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 1.6rem 1.5rem;
+        }
+
+        .page-banner h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        /* Main Content Area */
         .content {
             flex: 1;
-            max-width: 720px;
+            width: 100%;
+            max-width: 1140px;
             margin: 3rem auto;
             padding: 0 1.5rem;
+        }
+
+        /* White Card with Purple Top Accent */
+        .contact-card {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2.5rem 2.25rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
             text-align: center;
+            overflow: hidden;
         }
 
-        .content h1 {
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background-color: var(--purple-accent);
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+
+        .contact-card h2 {
             color: var(--purple-dark);
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
-        .content p {
-            color: var(--purple-main);
+        .contact-card p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
             margin-bottom: 1.5rem;
         }
 
-        /* New styles for the social links */
         .social-links {
             display: flex;
             justify-content: center;
@@ -94,23 +138,35 @@
             background-color: var(--purple-main);
             color: var(--white);
             text-decoration: none;
-            padding: 0.65rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
+            padding: 0.7rem 1.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .social-btn:hover,
         .social-btn:focus-visible {
             background-color: var(--purple-dark);
+            transform: translateY(-2px);
         }
 
+        /* Footer */
         .footer {
-            background-color: var(--purple-dark);
+            background-color: var(--purple-main);
             color: var(--white);
             text-align: center;
-            padding: 1rem 1.5rem;
+            padding: 0.9rem 1.5rem;
             font-size: 0.9rem;
+        }
+
+        @media (max-width: 560px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -125,18 +181,23 @@
         </ul>
     </nav>
 
-    <main class="content">
+    <header class="page-banner">
         <h1>Contact</h1>
-        <p>This is my Facebook and Instagram—you can message me there!</p>
-        
-        <div class="social-links">
-            <a class="social-btn" href="https://www.facebook.com/yourusername" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a class="social-btn" href="https://www.instagram.com/yourusername" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </header>
+
+    <main class="content">
+        <div class="contact-card">
+            <h2>Get in Touch</h2>
+            <p>This is my Facebook and Instagram—you can message me there!</p>
+            <div class="social-links">
+                <a class="social-btn" href="https://www.facebook.com/yourusername" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a class="social-btn" href="https://www.instagram.com/yourusername" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
         </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 My Website. All rights reserved.</p>
+        <p>&copy; 2026 Contact | Tabarnilla Chelsea Mae</p>
     </footer>
 </body>
 </html>
