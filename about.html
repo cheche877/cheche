@@ -4,7 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="menu.css">
+    <style>
+        :root {
+            --purple-dark: #4a148c;
+            --purple-main: #6a1b9a;
+            --purple-accent: #7b1fa2;
+            --bg-lavender: #f6f2fb;
+            --white: #ffffff;
+            --text-dark: #240842;
+            --shadow-card: 0 4px 12px rgba(74, 20, 140, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-lavender);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            background-color: var(--purple-main);
+            padding: 0 2.5rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.9rem 1.4rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            background-color: var(--purple-dark);
+        }
+
+        .nav-link.active {
+            background-color: var(--white);
+            color: var(--purple-dark);
+            font-weight: 700;
+        }
+
+        /* Page Title Banner */
+        .page-banner {
+            background-color: var(--purple-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 1.6rem 1.5rem;
+        }
+
+        .page-banner h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1;
+            width: 100%;
+            max-width: 1140px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* White Card with Purple Top Accent */
+        .about-card {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2.5rem 2.25rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background-color: var(--purple-accent);
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+
+        .about-card h2 {
+            color: var(--purple-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .about-card p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--purple-main);
+            color: var(--white);
+            text-align: center;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 560px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .about-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
@@ -16,9 +160,21 @@
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <center>
+
+    <header class="page-banner">
         <h1>About</h1>
-        <p>Welcome to my about page!</p>
-    </center>
+    </header>
+
+    <main class="content">
+        <div class="about-card">
+            <h2>Tabarnilla Chelsea Mae</h2>
+            <p>Welcome to my about page!</p>
+            <p>I am passionate about web development, design, and building interactive projects. Feel free to explore my work in the Portfolio section or reach out through the Contact page.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 About | Tabarnilla Chelsea Mae</p>
+    </footer>
 </body>
 </html>
