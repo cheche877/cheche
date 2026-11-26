@@ -1,39 +1,171 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>yori.Homes - Portfolio</title>
     <link rel="stylesheet" href="menu.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f6f2fc;
+            color: #24133d;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation Bar - Left Aligned */
+        nav {
+            background: #5e2ca5;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 24px;
+            border-bottom: 3px solid #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 22px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #3e1b73;
+            color: #ffffff;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        header {
+            background: #3e1b73;
+            text-align: center;
+            padding: 32px 20px;
+            border-bottom: 4px solid #ffffff;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Centered Portfolio Grid */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 24px;
+        }
+
+        .grid-container {
+            max-width: 1000px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 110px;
+            padding: 20px 16px;
+            background: #ffffff;
+            color: #3e1b73;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            border-top: 5px solid #5e2ca5;
+            box-shadow: 0 4px 12px rgba(94, 44, 165, 0.14);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            background: #5e2ca5;
+            color: #ffffff;
+            box-shadow: 0 8px 18px rgba(94, 44, 165, 0.24);
+        }
+
+        footer {
+            background-color: #5e2ca5;
+            color: #ffffff;
+            text-align: center;
+            padding: 16px 20px;
+            font-size: 15px;
+            border-top: 3px solid #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 12px;
+            }
+
+            nav a {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-     <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
+    <header>
+        <h1>Portfolio</h1>
+    </header>
 
-    <!-- Grid Container for Portfolio Items -->
-    <div class="grid-container">       
-        <a href="FormElements.html" class="box">Form Element</a>
-        <a href="PortalLogin.html" class="box">Portal Login</a>
-        <a href="console.html" class="box">JavaScript</a>
-        <a href ="sample.html" class="box">Sample</a>
-        <a href="discount.html" class="box">Discount Calculator</a>
-        <a href="PersonalDeveloper.html" class="box">.Net Developer Profile</a>
-        <a href="studentlist.html" class="box">Tabular Student Data</a>
-        <a href="classsched.html" class="box">class schedule</a>
-        <a href="stylesched.html" class="box">style schedule  </a>
-        <a href="grid.html" class="box">Grid</a>
-        <a href="savegrades.html" class="box">savegrades</a>
-        <a href="practiceflex.html" class="box">practiceflex</a>
-        
-         
-    </div>
+    <main>
+        <div class="grid-container">
+            <a href="FormElements.html" class="box">Form Elements</a>
+            <a href="PortalLogin.html" class="box">Portal Login</a>
+            <a href="console.html" class="box">JavaScript</a>
+            <a href="sample.html" class="box">Sample</a>
+            <a href="discount.html" class="box">Discount Calculator</a>
+            <a href="PersonalDeveloper.html" class="box">.NET Developer Profile</a>
+            <a href="studentlist.html" class="box">Tabular Student Data</a>
+            <a href="classsched.html" class="box">Class Schedule</a>
+            <a href="stylesched.html" class="box">Style Schedule</a>
+            <a href="grid.html" class="box">Grid</a>
+            <a href="savegrades.html" class="box">Save Grades</a>
+            <a href="practiceflex.html" class="box">Practice Flex</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Contact | Tabarnilla Chelsea Mae</p>
+    </footer>
 </body>
 </html>
