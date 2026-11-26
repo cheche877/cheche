@@ -9,10 +9,11 @@
             --purple-dark: #4a148c;
             --purple-main: #6a1b9a;
             --purple-accent: #7b1fa2;
+            --purple-soft: #ede7f6;
             --bg-lavender: #f6f2fb;
             --white: #ffffff;
             --text-dark: #240842;
-            --shadow-card: 0 4px 12px rgba(74, 20, 140, 0.08);
+            --shadow-card: 0 4px 14px rgba(74, 20, 140, 0.1);
         }
 
         * {
@@ -25,7 +26,7 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-lavender);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.55;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -71,80 +72,182 @@
             background-color: var(--purple-dark);
             color: var(--white);
             text-align: center;
-            padding: 1.6rem 1.5rem;
+            padding: 1.4rem 1.5rem;
         }
 
         .page-banner h1 {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 700;
             letter-spacing: 0.01em;
         }
 
-        /* Main Content Area */
+        /* Main Stage Container */
         .content {
             flex: 1;
             width: 100%;
-            max-width: 1140px;
-            margin: 3rem auto;
+            max-width: 1220px;
+            margin: 2rem auto;
             padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
         }
 
-        .gallery-intro {
-            text-align: center;
+        .gallery-stage {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr) 260px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        /* Side Cards */
+        .side-card {
+            background-color: var(--white);
+            border: 2px solid var(--purple-accent);
+            border-radius: 12px;
+            padding: 1.35rem 1.25rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .side-card h2 {
             color: var(--purple-dark);
             font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
         }
 
-        /* Photo Grid with Matching White Cards */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .photo-card {
-            position: relative;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .photo-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 7px;
-            background-color: var(--purple-accent);
-            border-bottom-left-radius: 14px;
-            border-bottom-right-radius: 14px;
-            z-index: 1;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(74, 20, 140, 0.14);
-        }
-
-        .photo-card img {
-            display: block;
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            background-color: #ece3f7;
-        }
-
-        .photo-caption {
-            padding: 0.9rem 1.1rem;
-            text-align: center;
-            font-weight: 600;
+        .side-card p {
             color: var(--text-dark);
             font-size: 0.95rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .side-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .photo-counter-badge {
+            display: inline-block;
+            background-color: var(--purple-soft);
+            color: var(--purple-dark);
+            border: 1px solid var(--purple-accent);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            margin-bottom: 0.75rem;
+        }
+
+        .desc-label {
+            color: var(--purple-main);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.45rem;
+        }
+
+        /* Center Carousel Card */
+        .carousel-card {
+            background-color: var(--white);
+            border: 2px solid var(--purple-accent);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem 1.25rem;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+
+        .carousel-title {
+            color: var(--purple-dark);
+            font-size: 1.65rem;
+            font-weight: 800;
+            margin-bottom: 1.1rem;
+        }
+
+        .viewer-frame {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--purple-dark);
+            background-color: var(--purple-soft);
+            aspect-ratio: 16 / 9;
+        }
+
+        .viewer-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            background-color: var(--purple-dark);
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(36, 8, 66, 0.35);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-arrow:hover,
+        .nav-arrow:focus-visible {
+            background-color: var(--purple-main);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow.prev {
+            left: 14px;
+        }
+
+        .nav-arrow.next {
+            right: 14px;
+        }
+
+        .photo-caption-bar {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            background-color: rgba(36, 8, 66, 0.9);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 8px;
+            padding: 0.55rem 1rem;
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+
+        /* Dot Indicators */
+        .dots-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-top: 1rem;
+        }
+
+        .dot-btn {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            border: none;
+            background-color: #d1c4e9;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .dot-btn.active {
+            background-color: var(--purple-dark);
+            transform: scale(1.2);
         }
 
         /* Footer */
@@ -156,9 +259,22 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 900px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
+        /* Responsive Layout */
+        @media (max-width: 1024px) {
+            .gallery-stage {
+                grid-template-columns: 1fr;
+            }
+
+            .side-card {
+                max-width: 720px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .carousel-card {
+                max-width: 720px;
+                width: 100%;
+                margin: 0 auto;
             }
         }
 
@@ -167,8 +283,17 @@
                 padding: 0 1rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .carousel-card {
+                padding: 1.1rem;
+            }
+
+            .carousel-title {
+                font-size: 1.35rem;
+            }
+
+            .photo-caption-bar {
+                font-size: 0.85rem;
+                padding: 0.45rem 0.75rem;
             }
         }
     </style>
@@ -189,28 +314,128 @@
     </header>
 
     <main class="content">
-        <p class="gallery-intro">My Photos &lt;3</p>
+        <div class="gallery-stage">
+            <!-- Left Info Card -->
+            <aside class="side-card">
+                <h2>About This Gallery</h2>
+                <p>A quick look at the moments, memories, and highlights I want to share.</p>
+                <p><strong>Tip:</strong> Use arrow keys or buttons to browse.</p>
+                <p id="total-photos-text"><strong>Photos:</strong> 4 personal highlights</p>
+            </aside>
 
-        <div class="gallery-grid">
-            <div class="photo-card">
-                <img src="photo1.jpg" alt="Photo 1">
-                <div class="photo-caption">Photo 1</div>
-            </div>
+            <!-- Center Slideshow Card -->
+            <section class="carousel-card" aria-label="Photo Carousel">
+                <h2 class="carousel-title">My Photo Gallery</h2>
 
-            <div class="photo-card">
-                <img src="photo2.jpg" alt="Photo 2">
-                <div class="photo-caption">Photo 2</div>
-            </div>
+                <div class="viewer-frame">
+                    <img id="gallery-image" src="photo1.jpg" alt="Gallery photo 1">
 
-            <div class="photo-card">
-                <img src="photo3.jpg" alt="Photo 3">
-                <div class="photo-caption">Photo 3</div>
-            </div>
+                    <button type="button" class="nav-arrow prev" id="prev-btn" aria-label="Previous photo">&lsaquo;</button>
+                    <button type="button" class="nav-arrow next" id="next-btn" aria-label="Next photo">&rsaquo;</button>
+
+                    <div class="photo-caption-bar" id="photo-caption">My favorite moment #1</div>
+                </div>
+
+                <div class="dots-row" id="dots-row" aria-label="Slide indicators"></div>
+            </section>
+
+            <!-- Right Description Card -->
+            <aside class="side-card">
+                <span class="photo-counter-badge" id="photo-counter">Photo 1 of 4</span>
+                <div class="desc-label">Short Description</div>
+                <p id="photo-description">Add your short description for this photo here.</p>
+            </aside>
         </div>
     </main>
 
     <footer class="footer">
         <p>&copy; 2026 Gallery | Tabarnilla Chelsea Mae</p>
     </footer>
+
+    <script>
+        const photos = [
+            {
+                src: "photo1.jpg",
+                caption: "My favorite moment #1",
+                description: "Replace this text with a short story or description for your first photo."
+            },
+            {
+                src: "photo2.jpg",
+                caption: "My favorite moment #2",
+                description: "Replace this text with a short story or description for your second photo."
+            },
+            {
+                src: "photo3.jpg",
+                caption: "My favorite moment #3",
+                description: "Replace this text with a short story or description for your third photo."
+            },
+            {
+                src: "photo4.jpg",
+                caption: "My favorite moment #4",
+                description: "Replace this text with a short story or description for your fourth photo."
+            }
+        ];
+
+        let currentIndex = 0;
+
+        const imgEl = document.getElementById("gallery-image");
+        const captionEl = document.getElementById("photo-caption");
+        const counterEl = document.getElementById("photo-counter");
+        const descriptionEl = document.getElementById("photo-description");
+        const totalTextEl = document.getElementById("total-photos-text");
+        const dotsRowEl = document.getElementById("dots-row");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        totalTextEl.innerHTML = `<strong>Photos:</strong> ${photos.length} personal highlights`;
+
+        function renderDots() {
+            dotsRowEl.innerHTML = "";
+            photos.forEach((_, index) => {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "dot-btn" + (index === currentIndex ? " active" : "");
+                dot.setAttribute("aria-label", `Go to photo ${index + 1}`);
+                dot.addEventListener("click", () => {
+                    currentIndex = index;
+                    updateGallery();
+                });
+                dotsRowEl.appendChild(dot);
+            });
+        }
+
+        function updateGallery() {
+            const currentPhoto = photos[currentIndex];
+            imgEl.src = currentPhoto.src;
+            imgEl.alt = currentPhoto.caption;
+            captionEl.textContent = currentPhoto.caption;
+            counterEl.textContent = `Photo ${currentIndex + 1} of ${photos.length}`;
+            descriptionEl.textContent = currentPhoto.description;
+            renderDots();
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            updateGallery();
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % photos.length;
+            updateGallery();
+        }
+
+        prevBtn.addEventListener("click", showPrev);
+        nextBtn.addEventListener("click", showNext);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                showPrev();
+            } else if (event.key === "ArrowRight") {
+                showNext();
+            }
+        });
+
+        updateGallery();
+    </script>
 </body>
 </html>
