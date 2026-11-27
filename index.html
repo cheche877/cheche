@@ -1,195 +1,222 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>che.homes - Home</title>
-    <link rel="stylesheet" href="menu.css">
     <style>
+        :root {
+            --purple-dark: #4a148c;
+            --purple-main: #6a1b9a;
+            --purple-accent: #7b1fa2;
+            --purple-soft: #ede7f6;
+            --bg-lavender: #f6f2fb;
+            --white: #ffffff;
+            --text-dark: #240842;
+            --shadow-card: 0 4px 12px rgba(74, 20, 140, 0.08);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f6f2fc;
-            color: #24133d;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-lavender);
+            background-image:
+                linear-gradient(rgba(246, 242, 251, 0.82), rgba(246, 242, 251, 0.82)),
+                url("sailormoon.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* Top Navigation Bar - Left Aligned */
-        nav {
-            background: #5e2ca5;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 0 24px;
-            border-bottom: 3px solid #ffffff;
+        .navbar {
+            background-color: var(--purple-main);
+            padding: 0 2.5rem;
+            border-bottom: 3px solid var(--white);
         }
 
-        nav ul {
+        .nav-list {
             list-style: none;
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            gap: 8px;
+            align-items: stretch;
+            gap: 0.5rem;
         }
 
-        nav a {
-            display: block;
-            color: #ffffff;
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
             text-decoration: none;
-            padding: 15px 22px;
-            font-size: 17px;
-            font-weight: bold;
-            transition: background 0.2s, color 0.2s;
+            padding: 0.9rem 1.4rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        nav a:hover,
-        nav a.active {
-            background: #3e1b73;
-            color: #ffffff;
-            border-bottom: 4px solid #ffffff;
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            background-color: var(--purple-dark);
         }
 
-        header {
-            background: #3e1b73;
+        .nav-link.active {
+            background-color: var(--white);
+            color: var(--purple-dark);
+            font-weight: 700;
+        }
+
+        .page-banner {
+            background-color: var(--purple-dark);
+            color: var(--white);
             text-align: center;
-            padding: 36px 20px;
-            border-bottom: 4px solid #ffffff;
+            padding: 2rem 1.5rem;
+            border-bottom: 4px solid var(--white);
         }
 
-        header h1 {
-            color: #ffffff;
-            font-size: 32px;
-            letter-spacing: 0.5px;
+        .page-banner h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
 
-        header p {
-            color: #f3ecff;
-            font-size: 15px;
-            margin-top: 8px;
+        .page-banner p {
+            color: var(--purple-soft);
+            font-size: 0.98rem;
+            margin-top: 0.4rem;
         }
 
-        /* Centered Main Content */
-        main {
+        .content {
             flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px 24px;
+            width: 100%;
+            max-width: 1140px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
         .home-card {
+            position: relative;
             max-width: 780px;
-            width: 100%;
-            background: #ffffff;
-            padding: 36px 32px;
-            border-radius: 12px;
-            border-top: 6px solid #5e2ca5;
-            box-shadow: 0 6px 18px rgba(94, 44, 165, 0.14);
+            margin: 0 auto;
+            padding: 2.5rem 2.25rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-card);
             text-align: center;
+            overflow: hidden;
+        }
+
+        .home-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background-color: var(--purple-accent);
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
         }
 
         .home-card h2 {
-            font-size: 26px;
-            color: #3e1b73;
-            margin-bottom: 14px;
+            color: var(--purple-dark);
+            font-size: 1.6rem;
+            margin-bottom: 0.85rem;
         }
 
         .home-card p {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #3c2959;
-            margin-bottom: 24px;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 1.75rem;
         }
 
         .btn-group {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 0.9rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: bold;
-            transition: transform 0.2s, background 0.2s, color 0.2s;
+            font-size: 0.98rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
         }
 
         .btn-primary {
-            background: #5e2ca5;
-            color: #ffffff;
-            border: 2px solid #5e2ca5;
+            background-color: var(--purple-main);
+            color: var(--white);
+            border: 2px solid var(--purple-main);
         }
 
-        .btn-primary:hover {
-            background: #3e1b73;
-            border-color: #3e1b73;
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            background-color: var(--purple-dark);
+            border-color: var(--purple-dark);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: #ffffff;
-            color: #5e2ca5;
-            border: 2px solid #5e2ca5;
+            background-color: var(--white);
+            color: var(--purple-main);
+            border: 2px solid var(--purple-main);
         }
 
-        .btn-secondary:hover {
-            background: #f6f2fc;
+        .btn-secondary:hover,
+        .btn-secondary:focus-visible {
+            background-color: var(--bg-lavender);
             transform: translateY(-2px);
         }
 
-        footer {
-            background-color: #5e2ca5;
-            color: #ffffff;
+        .footer {
+            background-color: var(--purple-main);
+            color: var(--white);
             text-align: center;
-            padding: 16px 20px;
-            font-size: 15px;
-            border-top: 3px solid #ffffff;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--white);
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 12px;
-            }
-
-            nav a {
-                padding: 10px 14px;
-                font-size: 14px;
+        @media (max-width: 560px) {
+            .navbar {
+                padding: 0 1rem;
             }
 
             .home-card {
-                padding: 26px 20px;
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <header>
-        <h1>Welcome to my</h1>
+    <header class="page-banner">
+        <h1>Welcome to che.homes</h1>
         <p>Personal space, photo gallery, and web projects</p>
     </header>
 
-    <main>
+    <main class="content">
         <div class="home-card">
             <h2>Hello &amp; Welcome</h2>
             <p>
@@ -204,8 +231,8 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Contact | Tabarnilla Chelsea Mae</p>
+    <footer class="footer">
+        <p>&copy; 2026 Home | Tabarnilla Chelsea Mae</p>
     </footer>
 </body>
 </html>
