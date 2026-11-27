@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Gallery - che.homes</title>
     <style>
         :root {
             --purple-dark: #4a148c;
@@ -25,6 +25,13 @@
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-lavender);
+            background-image:
+                linear-gradient(rgba(246, 242, 251, 0.82), rgba(246, 242, 251, 0.82)),
+                url("sailormoon.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-dark);
             line-height: 1.55;
             min-height: 100vh;
@@ -32,10 +39,10 @@
             flex-direction: column;
         }
 
-        /* Top Navigation Bar */
         .navbar {
             background-color: var(--purple-main);
             padding: 0 2.5rem;
+            border-bottom: 3px solid var(--white);
         }
 
         .nav-list {
@@ -67,12 +74,12 @@
             font-weight: 700;
         }
 
-        /* Page Title Banner */
         .page-banner {
             background-color: var(--purple-dark);
             color: var(--white);
             text-align: center;
             padding: 1.4rem 1.5rem;
+            border-bottom: 4px solid var(--white);
         }
 
         .page-banner h1 {
@@ -81,7 +88,6 @@
             letter-spacing: 0.01em;
         }
 
-        /* Main Stage Container */
         .content {
             flex: 1;
             width: 100%;
@@ -100,7 +106,6 @@
             align-items: start;
         }
 
-        /* Side Cards */
         .side-card {
             background-color: var(--white);
             border: 2px solid var(--purple-accent);
@@ -145,7 +150,6 @@
             margin-bottom: 0.45rem;
         }
 
-        /* Center Carousel Card */
         .carousel-card {
             background-color: var(--white);
             border: 2px solid var(--purple-accent);
@@ -227,7 +231,6 @@
             font-weight: 600;
         }
 
-        /* Dot Indicators */
         .dots-row {
             display: flex;
             justify-content: center;
@@ -250,27 +253,21 @@
             transform: scale(1.2);
         }
 
-        /* Footer */
         .footer {
             background-color: var(--purple-main);
             color: var(--white);
             text-align: center;
             padding: 0.9rem 1.5rem;
             font-size: 0.9rem;
+            border-top: 3px solid var(--white);
         }
 
-        /* Responsive Layout */
         @media (max-width: 1024px) {
             .gallery-stage {
                 grid-template-columns: 1fr;
             }
 
-            .side-card {
-                max-width: 720px;
-                width: 100%;
-                margin: 0 auto;
-            }
-
+            .side-card,
             .carousel-card {
                 max-width: 720px;
                 width: 100%;
@@ -315,7 +312,6 @@
 
     <main class="content">
         <div class="gallery-stage">
-            <!-- Left Info Card -->
             <aside class="side-card">
                 <h2>About This Gallery</h2>
                 <p>A quick look at the moments, memories, and highlights I want to share.</p>
@@ -323,12 +319,11 @@
                 <p id="total-photos-text"><strong>Photos:</strong> 4 personal highlights</p>
             </aside>
 
-            <!-- Center Slideshow Card -->
             <section class="carousel-card" aria-label="Photo Carousel">
                 <h2 class="carousel-title">My Photo Gallery</h2>
 
                 <div class="viewer-frame">
-                    <img id="gallery-image" src="photo1.jpg" alt="Gallery photo 1">
+                    <img id="gallery-image" src="image1.jpg" alt="My favorite moment #1">
 
                     <button type="button" class="nav-arrow prev" id="prev-btn" aria-label="Previous photo">&lsaquo;</button>
                     <button type="button" class="nav-arrow next" id="next-btn" aria-label="Next photo">&rsaquo;</button>
@@ -339,11 +334,10 @@
                 <div class="dots-row" id="dots-row" aria-label="Slide indicators"></div>
             </section>
 
-            <!-- Right Description Card -->
             <aside class="side-card">
                 <span class="photo-counter-badge" id="photo-counter">Photo 1 of 4</span>
                 <div class="desc-label">Short Description</div>
-                <p id="photo-description">Add your short description for this photo here.</p>
+                <p id="photo-description">Replace this text with a short story or description for your first photo.</p>
             </aside>
         </div>
     </main>
