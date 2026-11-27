@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About - che.homes</title>
     <style>
         :root {
             --purple-dark: #4a148c;
             --purple-main: #6a1b9a;
             --purple-accent: #7b1fa2;
+            --purple-soft: #ede7f6;
             --bg-lavender: #f6f2fb;
             --white: #ffffff;
             --text-dark: #240842;
@@ -24,6 +25,13 @@
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-lavender);
+            background-image:
+                linear-gradient(rgba(246, 242, 251, 0.82), rgba(246, 242, 251, 0.82)),
+                url("sailormoon.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -31,10 +39,10 @@
             flex-direction: column;
         }
 
-        /* Top Navigation Bar */
         .navbar {
             background-color: var(--purple-main);
             padding: 0 2.5rem;
+            border-bottom: 3px solid var(--white);
         }
 
         .nav-list {
@@ -66,12 +74,12 @@
             font-weight: 700;
         }
 
-        /* Page Title Banner */
         .page-banner {
             background-color: var(--purple-dark);
             color: var(--white);
             text-align: center;
             padding: 1.6rem 1.5rem;
+            border-bottom: 4px solid var(--white);
         }
 
         .page-banner h1 {
@@ -80,7 +88,6 @@
             letter-spacing: 0.01em;
         }
 
-        /* Main Content Area */
         .content {
             flex: 1;
             width: 100%;
@@ -89,7 +96,6 @@
             padding: 0 1.5rem;
         }
 
-        /* White Card with Purple Top Accent */
         .about-card {
             position: relative;
             max-width: 760px;
@@ -130,13 +136,13 @@
             margin-bottom: 0;
         }
 
-        /* Footer */
         .footer {
             background-color: var(--purple-main);
             color: var(--white);
             text-align: center;
             padding: 0.9rem 1.5rem;
             font-size: 0.9rem;
+            border-top: 3px solid var(--white);
         }
 
         @media (max-width: 560px) {
