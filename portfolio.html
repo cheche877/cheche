@@ -1,89 +1,107 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Portfolio</title>
-    <link rel="stylesheet" href="menu.css">
+    <title>Portfolio - che.homes</title>
     <style>
+        :root {
+            --purple-dark: #4a148c;
+            --purple-main: #6a1b9a;
+            --purple-accent: #7b1fa2;
+            --bg-lavender: #f6f2fb;
+            --white: #ffffff;
+            --text-dark: #240842;
+            --shadow-card: 0 4px 12px rgba(74, 20, 140, 0.08);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f6f2fc;
-            color: #24133d;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-lavender);
+            background-image:
+                linear-gradient(rgba(246, 242, 251, 0.82), rgba(246, 242, 251, 0.82)),
+                url("sailormoon.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* Top Navigation Bar - Left Aligned */
-        nav {
-            background: #5e2ca5;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 0 24px;
-            border-bottom: 3px solid #ffffff;
+        .navbar {
+            background-color: var(--purple-main);
+            padding: 0 2.5rem;
+            border-bottom: 3px solid var(--white);
         }
 
-        nav ul {
+        .nav-list {
             list-style: none;
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
-            gap: 8px;
+            align-items: stretch;
+            gap: 0.5rem;
         }
 
-        nav a {
-            display: block;
-            color: #ffffff;
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
             text-decoration: none;
-            padding: 15px 22px;
-            font-size: 17px;
-            font-weight: bold;
-            transition: background 0.2s, color 0.2s;
+            padding: 0.9rem 1.4rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        nav a:hover,
-        nav a.active {
-            background: #3e1b73;
-            color: #ffffff;
-            border-bottom: 4px solid #ffffff;
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            background-color: var(--purple-dark);
         }
 
-        header {
-            background: #3e1b73;
+        .nav-link.active {
+            background-color: var(--white);
+            color: var(--purple-dark);
+            font-weight: 700;
+        }
+
+        .page-banner {
+            background-color: var(--purple-dark);
+            color: var(--white);
             text-align: center;
-            padding: 32px 20px;
-            border-bottom: 4px solid #ffffff;
+            padding: 1.6rem 1.5rem;
+            border-bottom: 4px solid var(--white);
         }
 
-        header h1 {
-            color: #ffffff;
-            font-size: 32px;
-            letter-spacing: 0.5px;
+        .page-banner h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
 
-        /* Centered Portfolio Grid */
-        main {
+        .content {
             flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px 24px;
+            width: 100%;
+            max-width: 1140px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
         .grid-container {
             max-width: 1000px;
             width: 100%;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 18px;
+            gap: 1.15rem;
         }
 
         .box {
@@ -92,62 +110,58 @@
             justify-content: center;
             text-align: center;
             min-height: 110px;
-            padding: 20px 16px;
-            background: #ffffff;
-            color: #3e1b73;
+            padding: 1.25rem 1rem;
+            background-color: var(--white);
+            color: var(--purple-dark);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 700;
             border-radius: 10px;
-            border-top: 5px solid #5e2ca5;
-            box-shadow: 0 4px 12px rgba(94, 44, 165, 0.14);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+            border-top: 5px solid var(--purple-accent);
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
         }
 
-        .box:hover {
+        .box:hover,
+        .box:focus-visible {
             transform: translateY(-4px);
-            background: #5e2ca5;
-            color: #ffffff;
-            box-shadow: 0 8px 18px rgba(94, 44, 165, 0.24);
+            background-color: var(--purple-main);
+            color: var(--white);
+            box-shadow: 0 8px 18px rgba(74, 20, 140, 0.2);
         }
 
-        footer {
-            background-color: #5e2ca5;
-            color: #ffffff;
+        .footer {
+            background-color: var(--purple-main);
+            color: var(--white);
             text-align: center;
-            padding: 16px 20px;
-            font-size: 15px;
-            border-top: 3px solid #ffffff;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--white);
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 12px;
-            }
-
-            nav a {
-                padding: 10px 14px;
-                font-size: 14px;
+        @media (max-width: 560px) {
+            .navbar {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <header>
+    <header class="page-banner">
         <h1>Portfolio</h1>
     </header>
 
-    <main>
+    <main class="content">
         <div class="grid-container">
             <a href="FormElements.html" class="box">Form Elements</a>
             <a href="PortalLogin.html" class="box">Portal Login</a>
@@ -164,8 +178,8 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Contact | Tabarnilla Chelsea Mae</p>
+    <footer class="footer">
+        <p>&copy; 2026 Portfolio | Tabarnilla Chelsea Mae</p>
     </footer>
 </body>
 </html>
