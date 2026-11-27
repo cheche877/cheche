@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact - che.homes</title>
     <style>
         :root {
             --purple-dark: #4a148c;
             --purple-main: #6a1b9a;
             --purple-accent: #7b1fa2;
+            --purple-soft: #ede7f6;
             --bg-lavender: #f6f2fb;
             --white: #ffffff;
             --text-dark: #240842;
@@ -24,6 +25,13 @@
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-lavender);
+            background-image:
+                linear-gradient(rgba(246, 242, 251, 0.82), rgba(246, 242, 251, 0.82)),
+                url("sailormoon.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -31,10 +39,10 @@
             flex-direction: column;
         }
 
-        /* Top Navigation Bar */
         .navbar {
             background-color: var(--purple-main);
             padding: 0 2.5rem;
+            border-bottom: 3px solid var(--white);
         }
 
         .nav-list {
@@ -66,12 +74,12 @@
             font-weight: 700;
         }
 
-        /* Page Title Banner */
         .page-banner {
             background-color: var(--purple-dark);
             color: var(--white);
             text-align: center;
             padding: 1.6rem 1.5rem;
+            border-bottom: 4px solid var(--white);
         }
 
         .page-banner h1 {
@@ -80,7 +88,6 @@
             letter-spacing: 0.01em;
         }
 
-        /* Main Content Area */
         .content {
             flex: 1;
             width: 100%;
@@ -89,7 +96,6 @@
             padding: 0 1.5rem;
         }
 
-        /* White Card with Purple Top Accent */
         .contact-card {
             position: relative;
             max-width: 760px;
@@ -129,34 +135,37 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .social-btn {
+        .social-link {
             display: inline-block;
+            padding: 0.75rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
             background-color: var(--purple-main);
             color: var(--white);
-            text-decoration: none;
-            padding: 0.7rem 1.6rem;
-            border-radius: 8px;
-            font-weight: 600;
+            border: 2px solid var(--purple-main);
             transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
-        .social-btn:hover,
-        .social-btn:focus-visible {
+        .social-link:hover,
+        .social-link:focus-visible {
             background-color: var(--purple-dark);
+            border-color: var(--purple-dark);
             transform: translateY(-2px);
         }
 
-        /* Footer */
         .footer {
             background-color: var(--purple-main);
             color: var(--white);
             text-align: center;
             padding: 0.9rem 1.5rem;
             font-size: 0.9rem;
+            border-top: 3px solid var(--white);
         }
 
         @media (max-width: 560px) {
@@ -187,12 +196,11 @@
 
     <main class="content">
         <div class="contact-card">
-            <h2>Get in Touch</h2>
-            <p>This is my Facebook and Instagram—you can message me there!</p>
+            <h2>Connect With Me</h2>
+            <p>Feel free to reach out or follow me on Facebook and Instagram!</p>
             <div class="social-links">
-                <a class="social-btn" href=" https://www.facebook.com/share/1Pfd8AR22V/?mibextid=wwXIfr
-  " target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a class="social-btn" href="https://www.instagram.com/yourusername" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.facebook.com/share/1Pfd8AR22V/" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
+                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_u%2Fchilse_mi%3Ffbclid%3DIwZXh0bgNhZW0CMTAAcGRvZgFicmlkETFwZUF3WmFZNGQzRUtXTzlTc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABH2gpuSKg5T9jyiRjaJeMtBTXEej6-gFG2GC0ujYsuodYvRvNuQmfuPi1wqYw_aem_ljZl6-TmhRfaNuDcRZPzCw&h=AUDaQIjsUUcrhWYBxWTz89jaEnj6InqRLDz-3_y-EVrJL2qnlSJtis69gTx1jPsU_qwRvsL3krXdxgSzM3fjKCCpCTkNYOkhnW838rq6cx_5ZzSJn-9_Mt8BVeDQhlES" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
             </div>
         </div>
     </main>
